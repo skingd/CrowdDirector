@@ -21,12 +21,11 @@ public class ControlModel {
 
     }
 
-
     /**
      * Randomly determine which image to switch next
      * @param right
      * @param left
-     * @return
+     * @return drawable to set visible
      */
     public ImageView MakeRandomSelection(ImageView right, ImageView left){
         if(rand.nextInt(101) >= 50){
@@ -34,7 +33,5 @@ public class ControlModel {
         }
         return left;
     }
-
-
 
 }

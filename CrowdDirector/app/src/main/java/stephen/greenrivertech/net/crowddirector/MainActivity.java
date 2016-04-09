@@ -8,7 +8,13 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+
+
 public class MainActivity extends AppCompatActivity {
+
+    //Amount of time in milliseconds to wait between drawable changes
+    //This will control how long the direction arrows stay visible
+    public static final int WAIT_TIME = 2700;
 
     private View currentVisible;
     ControlModel controlModel = new ControlModel();
@@ -19,9 +25,15 @@ public class MainActivity extends AppCompatActivity {
     //This will be the object that is currently visible
     View currentlyVisible;
 
+    /**
+     * Build current instance
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Set activity xml
         setContentView(R.layout.activity_main);
 
         //Create right arrow image view
@@ -54,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
                 currentlyVisible.setVisibility(View.VISIBLE);
 
 
+                /**
+                 * Wait
+                 */
                 handler.postDelayed(new Runnable() {
                     public void run() {
 
@@ -65,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                         currentlyVisible = engageButton;
 
                     }
-                }, 2000);
+                }, WAIT_TIME);
             }
         });
 
