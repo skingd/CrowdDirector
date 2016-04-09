@@ -3,22 +3,38 @@ package stephen.greenrivertech.net.crowddirector;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.util.Random;
+
 /**
  * Created by Stephen on 4/7/2016.
  */
 public class ControlModel {
 
+    //create new randomizer object
+    Random rand = new Random();
+
+
+    /**
+     * Constructor
+     */
     public ControlModel(){
 
     }
 
-    public void SwitchVisability(View currentVisible, View nextVisible){
 
-        //Set the current view object to invisible
-        currentVisible.setVisibility(View.INVISIBLE);
-
-        //Activate the next view object
-        nextVisible.setVisibility(View.VISIBLE);
+    /**
+     * Randomly determine which image to switch next
+     * @param right
+     * @param left
+     * @return
+     */
+    public ImageView MakeRandomSelection(ImageView right, ImageView left){
+        if(rand.nextInt(101) >= 50){
+            return right;
+        }
+        return left;
     }
+
+
 
 }
